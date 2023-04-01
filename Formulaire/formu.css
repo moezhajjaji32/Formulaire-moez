@@ -1,0 +1,66 @@
+#text{
+    display: block;
+    position: relative;
+    top: 90px;
+}
+#text_pre{
+    display: block;
+    position: relative;
+    top: 195px;
+}
+#text_age{
+    display: block;
+    position: relative;
+    top: 90px;
+}
+#text_num{
+    display: block;
+    position: relative;
+    top: 90px;
+}
+#text_email{
+    display: block;
+    position: relative;
+    top: 90px;
+}
+#text_pass{
+    display: block;
+    position: relative;
+    top: 125px;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background: url("R.jpg");
+    background-size: cover;
+    background-position:center ;
+    backdrop-filter: blur(8px);
+}
+#formulaire{
+    position: relative;
+    bottom: 50px;
+}
+input{
+    width: 300px;
+    background-color: #292929;
+    outline: 0;
+    border: 2px solid #fff;
+    padding: 10px;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+    top: 125px;
+
+}
+span{
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="formu.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulaires</title>
+</head>
+
+<body>
+    <div>
+        
+        <form action="" id="formulaire">
+            <div class="boite">
+                <input type="text" id="nom_u" placeholder="entrer votre nom"><br><br><br>
+                <span id="text"></span>
+                <span id="text_pre"></span>
+                <input type="text" id="pre_u" placeholder="entrer votre prénom"><br><br><br>
+                <span id="text_pre"></span>
+                <input type="text" id="age_u" placeholder="entrer votre age"><br><br><br>
+                <span id="text_age"></span>
+                <input type="text" id="num_u" placeholder="entrer votre numéro"><br><br><br>
+                <span id="text_num"></span>
+                <input type="text" id="email_u" placeholder="entrer votre email"><br><br><br>
+                <span id="text_email"></span>
+                <input type="password" id="pass_u" placeholder="entrer votre mot de passe">
+                <span id="text_pass"></span>
+            </div>
+        </form>
+    </div>
+    <script>
+// La validation d'un nom :
+        document.getElementById("nom_u").addEventListener('input',function(){
+            var nom = document.getElementById("nom_u").value;
+            var text = document.getElementById("text");
+            function alpha(ch)
+        {ch=ch.toUpperCase();
+        i=0;
+        a=0;
+    while((ch.charCodeAt(i)>=65)&&(ch.charCodeAt(i)<=90)&&(i<ch.length))
+        i=i+1;
+    if(i==ch.length)  return true;
+    return false
+    }
+    if(alpha(nom)){
+        text.innerHTML = "votre nom est accepter";
+        text.style.color="#00ff00";
+    }
+    else{
+        text.innerHTML = "votre nom est non accepter s'il vous plait saisir un nom correcte";
+        text.style.color = "red";
+    }
+        })
+// La validation d'un prénom  :
+        document.getElementById("pre_u").addEventListener('input',function(){
+            var prenom = document.getElementById("pre_u").value;
+            var textpre = document.getElementById("text_pre");
+            function alpha(ch)
+        {ch=ch.toUpperCase();
+        i=0;
+    while((ch.charCodeAt(i)>=65)&&(ch.charCodeAt(i)<=90)&&(i<ch.length))
+        i=i+1;
+    if(i==ch.length)  return true;
+    return false
+    }
+    if(alpha(prenom)){
+        textpre.innerHTML = "votre prenom est accepter ";
+        textpre.style.color="#00ff00";
+    }
+    else{
+        textpre.innerHTML = "votre prenom est non accepter s'il vous plait saisir un prénom correcte";
+        textpre.style.color = "red";
+    }
+    })
+//La validation d'un age :
+    document.getElementById("age_u").addEventListener('input',function(){
+            var age = document.getElementById("age_u").value;
+            var textage = document.getElementById("text_age");
+            function agee(ch)
+        {ch=ch.toUpperCase();
+        i=0;
+    while((ch.charCodeAt(i)>=48)&&(ch.charCodeAt(i)<=57)&&(ch.length<=2))
+        i=i+1;
+    if(i==ch.length)  return true;
+    return false
+    }
+    if(agee(age)){
+        textage.innerHTML = "votre age est accepter";
+        textage.style.color="#00ff00";
+    }
+    else{
+        textage.innerHTML = "votre age est non accepter s'il vous plait siasir un age correcte";
+        textage.style.color = "red";
+    }
+        })
+// La validation d'un numéro :
+        document.getElementById("num_u").addEventListener('input',function(){
+            var num = document.getElementById("num_u").value;
+            var textnum = document.getElementById("text_num");
+            function numero(ch)
+        {ch=ch.toUpperCase();
+        i=0;
+    while((ch.charCodeAt(i)>=48)&&(ch.charCodeAt(i)<=57)&&(ch.length>=8))
+        i=i+1;
+    if(i==ch.length)  return true;
+    return false;
+    }
+    if(numero(num)){
+        textnum.innerHTML = "votre votre numéro est accepter";
+        textnum.style.color="#00ff00";
+    }
+    else{
+        textnum.innerHTML = "votre numéro est non accepter s'il vous plait saisir un numero correcte";
+        textnum.style.color = "red";
+    }
+        })
+        function alphas(ch)
+    {
+    ch=ch.toUpperCase();
+    i=0;
+    while((ch.charCodeAt(i)>=65)&&(ch.charCodeAt(i)<=90)&&(i<ch.length))
+    i=i+1;
+    if(i==ch.length) return true;
+      return false;
+    }
+// La validation d'un E-mail :
+    function alphanum(ch){
+    ch=ch.toUpperCase();
+    i=0;
+    while((ch.charCodeAt(i)>=65)&&(ch.charCodeAt(i)<=90)&&(i<ch.length)||(ch.charCodeAt(i)>=48)&&(ch.charCodeAt(i)<=57)&&(i<ch.length))
+    i=i+1;
+    if(i==ch.length) return true;
+      return false;
+    }
+    document.getElementById("email_u").addEventListener('input',function(){
+        var email = document.getElementById("email_u").value;
+        var textemail = document.getElementById("text_email");
+        function estmail(ch)
+    {
+      a= ch.indexOf("@");
+      b= ch.lastIndexOf(".");
+      x= ch.slice(0,a);
+      y= ch.slice(a+1,b);
+      z= ch.slice(b+1);
+      if ((a ==-1)||(b == -1)||(! alphanum(x))|| (!alphanum(y))||(!alphas(z))||(z.length !=2 && z.length !=3)||(a >= b))
+      return false;
+      return true;
+    }
+    if(estmail(email)){
+        textemail.innerHTML = "votre email est accepter";
+        textemail.style.color="#00ff00";
+    }
+    else{
+        textemail.innerHTML = "votre email est non accepter s'il vous plat saisir un E-mail correcte";
+        textemail.style.color="red";
+    }
+    })  
+// La validation d'un mot de passe:
+    document.getElementById("pass_u").addEventListener('input',function(){
+            var passw = document.getElementById("pass_u").value;
+            var textpass = document.getElementById("text_pass");
+    function password(ch){
+    ch=ch.toUpperCase();
+    i=0;
+    while((ch.charCodeAt(i)>=1)&&(ch.charCodeAt(i)<=255)&&(i<ch.length)&&(ch.length>8))
+    i=i+1;
+    if(i==ch.length) return true;
+      return false;
+    }
+    if (password(passw)) {
+      textpass.innerHTML = "votre mot de pass est accepter ";
+      textpass.style.color="#00ff00";
+    } else {
+      textpass.innerHTML = "votre mot de passe est incorrecte s'il vous plait saisir au moins 8 caractères";
+      textpass.style.color="red";
+    }
+    })
+    </script>
+    
+</body>
+</html>
